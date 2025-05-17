@@ -1,0 +1,2064 @@
+/* Global Styles - Dark Tech Theme */
+body {
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0; /* Light gray text for dark background */
+    background-color: #121212; /* Main background - Deep black */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #FFFFFF; /* White headings */
+}
+
+h1 { font-size: 2.8rem; line-height: 1.2; }
+h2 { font-size: 2.2rem; line-height: 1.3; }
+h3 { font-size: 1.6rem; line-height: 1.4; }
+
+a {
+    text-decoration: none;
+    color: #00AFFF; /* Tech blue - brighter */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #007BFF; /* Darker on hover */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Navigation Bar - Dark Theme */
+header {
+    background-color: rgba(18, 18, 18, 0.85); /* Semi-transparent dark background for tech feel */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    border-bottom: 1px solid #333; /* Dark border */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FFFFFF; /* White logo */
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: #c0c0c0; /* Light gray navigation links */
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00AFFF; /* Bright tech blue */
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+    width: 100%;
+}
+
+header nav ul li a:hover,
+header nav ul li a:hover {
+    color: #ffffff; /* White on hover */
+    background-color: rgba(0, 0, 0, 0.1); /* Slight background on hover */
+}
+
+/* Hero Section - Dark Theme */
+@keyframes hero-background-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('img/banner.jpg');
+    background-size: 400% 400%;
+    animation: hero-background-animation 20s ease infinite;
+    color: #FFFFFF;
+    padding: 140px 0; /* 进一步增加内边距 */
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* 隐藏可能的溢出动画元素 */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(0,175,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    animation: pulse 5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 0.1; transform: scale(1); }
+    to { opacity: 0.4; transform: scale(1.05); }
+}
+
+.hero-section h1 {
+    font-size: 3.8rem; /* 再次增大标题 */
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-shadow: 0 0 15px rgba(0, 175, 255, 0.7), 0 0 5px rgba(255,255,255,0.5); /* 增强发光 */
+    animation: slideInDown 1s ease-out;
+}
+
+.hero-section .subtitle {
+    font-size: 1.5rem; /* 增大副标题 */
+    margin-bottom: 3.5rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    animation: slideInUp 1s ease-out 0.3s backwards;
+}
+
+.hero-section .subtitle .mobile-break { display: none; }
+
+/* Button Styles - Dark Theme */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 35px; /* 增大按钮 */
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn i {
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: #00AFFF; /* 亮科技蓝 */
+    color: #121212; /* 深色文字以保证对比度 */
+    border-color: #00AFFF;
+    animation: pulse-glow 2s infinite alternate; /* 按钮呼吸光晕 */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #00AFFF; /* 亮科技蓝 */
+    color: #121212; /* 深色文字以保证对比度 */
+    border-color: #00AFFF;
+    animation: pulse-glow 2s infinite alternate; /* 按钮呼吸光晕 */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 5px rgba(0, 175, 255, 0.3), 0 0 10px rgba(0, 175, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(0, 175, 255, 0.6), 0 0 25px rgba(0, 175, 255, 0.4);
+    }
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* 更深的蓝色 */
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 175, 255, 0.6), 0 0 25px rgba(0, 175, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #00AFFF; /* 亮科技蓝 */
+    border-color: #00AFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 175, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 0;
+}
+
+.btn-secondary:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.btn-secondary span, .btn-secondary i { /* 确保文字和图标在伪元素之上 */
+    position: relative;
+    z-index: 1;
+}
+
+.btn-secondary:hover {
+    background-color: transparent; /* 保持透明，让伪元素效果显示 */
+    color: #FFFFFF; /* 悬停时文字变白 */
+    border-color: #00AFFF;
+}
+
+/* Core Advantages Section */
+.about-section, .products-section, .cases-section, .process-section, .contact-section {
+    padding: 80px 0;
+    border-bottom: 1px solid #222; /* 区块间细微分隔 */
+}
+
+.products-section, .process-section {
+    background-color: #1a1a1a; /* 稍浅的深色背景，区分区块 */
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 20px;
+    color: #FFFFFF;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #00AFFF, #007BFF); /* 渐变下划线 */
+    border-radius: 2px;
+}
+
+/* About Us Section - Dark Theme */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h3 {
+    margin-bottom: 20px;
+    color: #00AFFF; /* 亮科技蓝 */
+}
+
+.about-text p {
+    color: #b0b0b0; /* 文本颜色调整 */
+}
+
+.core-advantages {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.core-advantages h3 {
+    margin-bottom: 25px;
+    text-align: left;
+    color: #00AFFF;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.advantage-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.advantage-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.advantage-item::after { /* 添加悬停时的辉光效果 */
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 175, 255, 0.15) 0%, rgba(0, 175, 255, 0) 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+    z-index: 0;
+    opacity: 0;
+}
+
+.advantage-item:hover::after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.advantage-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 175, 255, 0.25);
+    border-color: #00AFFF;
+}
+
+.advantage-item > * { /* 确保内容在辉光之上 */
+    position: relative;
+    z-index: 1;
+}
+
+.advantage-item i {
+    font-size: 2.8rem; /* 略微增大图标 */
+    color: #00AFFF;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.advantage-item:hover i {
+    transform: scale(1.1);
+}
+
+.advantage-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+.advantage-item p {
+    color: #a0a0a0;
+}
+
+/* Products Section - Dark Theme */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Feature List Styles */
+.feature-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-list p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    line-height: 1.6;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.feature-list p:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .feature-list p {
+        font-size: 1.1rem;
+    }
+}
+
+.product-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.product-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-item::before { /* 卡片悬停时的边框动画 */
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: border-color 0.4s ease;
+    pointer-events: none; /* 不干扰鼠标事件 */
+}
+
+.product-item:hover::before {
+    border-color: rgba(0, 175, 255, 0.5);
+}
+
+.product-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 175, 255, 0.3);
+    border-color: #00AFFF; /* 保持主边框颜色变化 */
+}
+
+.product-item .product-icon {
+    font-size: 3.2rem; /* 略微增大 */
+    color: #00AFFF;
+    margin-bottom: 20px;
+    align-self: center;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-icon {
+    transform: rotateY(180deg); /* 图标翻转效果 */
+}
+
+.product-item h3 {
+    margin-bottom: 15px;
+    color: #00AFFF;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.product-item h4 {
+    font-size: 1.1rem;
+    color: #c0c0c0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+}
+
+.product-item ul li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    transition: color 0.3s ease;
+}
+
+.product-item ul li:hover {
+    color: #00AFFF;
+}
+
+.product-item ul li i {
+    color: #2EEF71; /* 更亮的绿色 */
+    margin-right: 10px;
+    margin-top: 4px;
+    transition: transform 0.3s ease;
+}
+
+.product-item ul li:hover i {
+    transform: translateX(3px);
+}
+
+.product-item p {
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+/* Success Cases Section - Dark Theme */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.case-item {
+    background-color: #007BFF; /* 主色背景保持，或改为深色卡片 */
+    /* background-color: #2a2a3e; */ /* 备选深色卡片背景 */
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #00AFFF; /* 边框增加科技感 */
+    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-item {
+    background-color: #007BFF; /* 主色背景保持，或改为深色卡片 */
+    /* background-color: #2a2a3e; */ /* 备选深色卡片背景 */
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #00AFFF; /* 边框增加科技感 */
+    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.3);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+.case-item:hover {
+    transform: scale(1.05) translateY(-5px) rotate(-1deg); /* 增加轻微旋转 */
+    box-shadow: 0 10px 35px rgba(0, 175, 255, 0.45);
+}
+
+.case-content h3 {
+    font-size: 1.5rem; /* 略微增大 */
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+.case-content p {
+    margin-bottom: 10px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.case-content .highlight {
+    font-weight: bold;
+    color: #FFA500; /* 辅助色高亮保持 */
+    text-shadow: 0 0 8px rgba(255,165,0,0.7);
+}
+
+/* Cooperation Process - Dark Theme */
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.step-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 25px; /* 增加内边距 */
+    background-color: #222;
+    border-radius: 10px; /* 更圆润 */
+    border: 1px solid #333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 175, 255, 0.2);
+}
+
+.step-number {
+    width: 60px; /* 增大 */
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00AFFF, #007BFF);
+    color: #FFFFFF;
+    font-size: 1.8rem; /* 增大 */
+    font-weight: bold;
+    margin: 0 auto 20px auto; /* 调整间距 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0,175,255,0.4);
+    transition: transform 0.3s ease;
+}
+
+.step-item:hover .step-number {
+    transform: scale(1.1);
+}
+
+.step-item h4 {
+    font-size: 1.25rem; /* 略微增大 */
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.step-item p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+.step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* 增大箭头 */
+    color: #00AFFF;
+    padding-top: 60px; /* 调整对齐 */
+    opacity: 0.7;
+}
+
+/* Contact Section - Dark Theme */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.contact-form-container {
+    flex: 1.5;
+    min-width: 300px;
+    background-color: #1e1e1e; /* 表单容器背景 */
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.contact-details {
+    flex: 1;
+    min-width: 300px;
+    padding-left: 20px;
+}
+
+.contact-details p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    color: #c0c0c0;
+}
+
+.contact-details i {
+    color: #00AFFF;
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-details hr {
+    border: 0;
+    border-top: 1px solid #444;
+    margin: 25px 0;
+}
+
+.contact-details strong {
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+#contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #b0b0b0;
+}
+
+#contact-form input[type="text"],
+#contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #444;
+    background-color: #2a2a2a; /* 输入框背景 */
+    color: #e0e0e0; /* 输入框文字颜色 */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#contact-form input[type="text"]::placeholder,
+#contact-form textarea::placeholder {
+    color: #777; /* 占位符颜色 */
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form textarea:focus {
+    border-color: #00AFFF;
+    background-color: #333;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0,175,255,.25);
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Footer - Dark Theme */
+footer {
+    background-color: #0a0a0a; /* 更深的页脚背景 */
+    color: #888; /* 页脚文字颜色 */
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+footer p {
+    margin: 0 0 10px 0;
+}
+
+footer a {
+    color: #aaa; /* 页脚链接颜色 */
+}
+
+footer a:hover {
+    color: #00AFFF; /* 页脚链接悬停 */
+}
+
+.social-links a {
+    color: #888;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #00AFFF;
+}
+
+/* Floating Chat Button */
+.floating-chat-button {
+    position: fixed;
+    bottom: 105px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+
+/* Keyframes for animations */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 为区块标题也增加一个入场动画 */
+section h2 {
+    animation: slideInUp 0.8s ease-out backwards;
+}
+
+/* 可以为特定区块设置不同的动画延迟 */
+.about-section h2 { animation-delay: 0.1s; }
+.products-section h2 { animation-delay: 0.1s; }
+.cases-section h2 { animation-delay: 0.1s; }
+.process-section h2 { animation-delay: 0.1s; }
+.contact-section h2 { animation-delay: 0.1s; }
+
+/* 为部分元素增加滚动出现动画 (需要JS配合激活类) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (max-width: 992px) {
+    .hero-section h1 { font-size: 2.8rem; }
+    .hero-section .subtitle { font-size: 1.2rem; }
+    section h2 { font-size: 2.2rem; }
+
+    .process-steps {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .step-arrow {
+        transform: rotate(90deg);
+        padding: 15px 0;
+    }
+    .step-item {
+        margin-bottom: 20px; /* 步骤间距 */
+    }
+    .process-steps .step-item:last-child {
+        margin-bottom: 0;
+    }
+    .process-steps .step-arrow:last-of-type {
+        display: none; /* 最后一个箭头不需要 */
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center; /* Logo居中 */
+    }
+
+    header nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap; /* 导航项换行 */
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 5px 10px;
+    }
+
+    .hero-section {
+        padding: 80px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1.1rem;
+    }
+    .hero-section .subtitle .mobile-break { display: block; }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    section h2 { font-size: 2rem; margin-bottom: 40px; }
+
+    .about-content, .contact-grid {
+        flex-direction: column;
+    }
+    .contact-details {
+        padding-left: 0;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .contact-details p {
+        justify-content: center;
+    }
+
+    .advantage-grid {
+        grid-template-columns: 1fr; /* 单列显示 */
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .floating-chat-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #00c300; /* LINE绿色 */
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .floating-chat-button i {
+        font-size: 24px;
+        color: white;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 1.5rem; }
+    .hero-section h1 { font-size: 2rem; }
+    .hero-section .subtitle { font-size: 1rem; }
+    section h2 { font-size: 1.8rem; }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Button Hover and Click Effects */
+.btn-hover-effect {
+    transform: scale(1.08) !important;
+    box-shadow: 0 0 20px rgba(0, 175, 255, 0.8), 0 0 30px rgba(0, 175, 255, 0.5) !important;
+}
+
+.btn-click-effect {
+    transform: scale(0.95) !important;
+    box-shadow: 0 0 10px rgba(0, 175, 255, 0.4) !important;
+    transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+}
+
+/* Background Animation and Tech Feel Enhancement */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,175,255,0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+    animation: moveBackground 10s linear infinite;
+}
+
+@keyframes moveBackground {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-100px, -100px); }
+}
+
+/* 增强卡片悬停效果 */
+.product-item:hover, .case-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 175, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 增强按钮悬停效果 */
+.btn-primary:hover {
+    background-color: #007BFF;
+    color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+}
+
+.btn-primary:hover {
+    background-color: #007BFF;
+    color: #121212; /* 深色文字以保证对比度 */
+    border-color: #00AFFF;
+    animation: pulse-glow 2s infinite alternate; /* 按钮呼吸光晕 */
+}
+
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 5px rgba(0, 175, 255, 0.3), 0 0 10px rgba(0, 175, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(0, 175, 255, 0.6), 0 0 25px rgba(0, 175, 255, 0.4);
+    }
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* 更深的蓝色 */
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 175, 255, 0.6), 0 0 25px rgba(0, 175, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #00AFFF; /* 亮科技蓝 */
+    border-color: #00AFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 175, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 0;
+}
+
+.btn-secondary:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.btn-secondary span, .btn-secondary i { /* 确保文字和图标在伪元素之上 */
+    position: relative;
+    z-index: 1;
+}
+
+.btn-secondary:hover {
+    background-color: transparent; /* 保持透明，让伪元素效果显示 */
+    color: #FFFFFF; /* 悬停时文字变白 */
+    border-color: #00AFFF;
+}
+
+/* Core Advantages Section */
+.about-section, .products-section, .cases-section, .process-section, .contact-section {
+    padding: 80px 0;
+    border-bottom: 1px solid #222; /* 区块间细微分隔 */
+}
+
+.products-section, .process-section {
+    background-color: #1a1a1a; /* 稍浅的深色背景，区分区块 */
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 20px;
+    color: #FFFFFF;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #00AFFF, #007BFF); /* 渐变下划线 */
+    border-radius: 2px;
+}
+
+/* About Us Section - Dark Theme */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h3 {
+    margin-bottom: 20px;
+    color: #00AFFF; /* 亮科技蓝 */
+}
+
+.about-text p {
+    color: #b0b0b0; /* 文本颜色调整 */
+}
+
+.core-advantages {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.core-advantages h3 {
+    margin-bottom: 25px;
+    text-align: left;
+    color: #00AFFF;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.advantage-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.advantage-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.advantage-item::after { /* 添加悬停时的辉光效果 */
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 175, 255, 0.15) 0%, rgba(0, 175, 255, 0) 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+    z-index: 0;
+    opacity: 0;
+}
+
+.advantage-item:hover::after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.advantage-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 175, 255, 0.25);
+    border-color: #00AFFF;
+}
+
+.advantage-item > * { /* 确保内容在辉光之上 */
+    position: relative;
+    z-index: 1;
+}
+
+.advantage-item i {
+    font-size: 2.8rem; /* 略微增大图标 */
+    color: #00AFFF;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.advantage-item:hover i {
+    transform: scale(1.1);
+}
+
+.advantage-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+.advantage-item p {
+    color: #a0a0a0;
+}
+
+/* Products Section - Dark Theme */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Feature List Styles */
+.feature-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-list p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    line-height: 1.6;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.feature-list p:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .feature-list p {
+        font-size: 1.1rem;
+    }
+}
+
+.product-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.product-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-item::before { /* 卡片悬停时的边框动画 */
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: border-color 0.4s ease;
+    pointer-events: none; /* 不干扰鼠标事件 */
+}
+
+.product-item:hover::before {
+    border-color: rgba(0, 175, 255, 0.5);
+}
+
+.product-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 175, 255, 0.3);
+    border-color: #00AFFF; /* 保持主边框颜色变化 */
+}
+
+.product-item .product-icon {
+    font-size: 3.2rem; /* 略微增大 */
+    color: #00AFFF;
+    margin-bottom: 20px;
+    align-self: center;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-icon {
+    transform: rotateY(180deg); /* 图标翻转效果 */
+}
+
+.product-item h3 {
+    margin-bottom: 15px;
+    color: #00AFFF;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.product-item h4 {
+    font-size: 1.1rem;
+    color: #c0c0c0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+}
+
+.product-item ul li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    transition: color 0.3s ease;
+}
+
+.product-item ul li:hover {
+    color: #00AFFF;
+}
+
+.product-item ul li i {
+    color: #2EEF71; /* 更亮的绿色 */
+    margin-right: 10px;
+    margin-top: 4px;
+    transition: transform 0.3s ease;
+}
+
+.product-item ul li:hover i {
+    transform: translateX(3px);
+}
+
+.product-item p {
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+/* Success Cases Section - Dark Theme */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.case-item {
+    background-color: #007BFF; /* 主色背景保持，或改为深色卡片 */
+    /* background-color: #2a2a3e; */ /* 备选深色卡片背景 */
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #00AFFF; /* 边框增加科技感 */
+    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-item {
+    background-color: #007BFF; /* 主色背景保持，或改为深色卡片 */
+    /* background-color: #2a2a3e; */ /* 备选深色卡片背景 */
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #00AFFF; /* 边框增加科技感 */
+    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.3);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+.case-item:hover {
+    transform: scale(1.05) translateY(-5px) rotate(-1deg); /* 增加轻微旋转 */
+    box-shadow: 0 10px 35px rgba(0, 175, 255, 0.45);
+}
+
+.case-content h3 {
+    font-size: 1.5rem; /* 略微增大 */
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+.case-content p {
+    margin-bottom: 10px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.case-content .highlight {
+    font-weight: bold;
+    color: #FFA500; /* 辅助色高亮保持 */
+    text-shadow: 0 0 8px rgba(255,165,0,0.7);
+}
+
+/* Cooperation Process - Dark Theme */
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.step-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 25px; /* 增加内边距 */
+    background-color: #222;
+    border-radius: 10px; /* 更圆润 */
+    border: 1px solid #333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 175, 255, 0.2);
+}
+
+.step-number {
+    width: 60px; /* 增大 */
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00AFFF, #007BFF);
+    color: #FFFFFF;
+    font-size: 1.8rem; /* 增大 */
+    font-weight: bold;
+    margin: 0 auto 20px auto; /* 调整间距 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0,175,255,0.4);
+    transition: transform 0.3s ease;
+}
+
+.step-item:hover .step-number {
+    transform: scale(1.1);
+}
+
+.step-item h4 {
+    font-size: 1.25rem; /* 略微增大 */
+    margin-bottom: 10px;
+    color: #FFFFFF;
+}
+
+.step-item p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+.step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* 增大箭头 */
+    color: #00AFFF;
+    padding-top: 60px; /* 调整对齐 */
+    opacity: 0.7;
+}
+
+/* Contact Section - Dark Theme */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.contact-form-container {
+    flex: 1.5;
+    min-width: 300px;
+    background-color: #1e1e1e; /* 表单容器背景 */
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.contact-details {
+    flex: 1;
+    min-width: 300px;
+    padding-left: 20px;
+}
+
+.contact-details p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    color: #c0c0c0;
+}
+
+.contact-details i {
+    color: #00AFFF;
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-details hr {
+    border: 0;
+    border-top: 1px solid #444;
+    margin: 25px 0;
+}
+
+.contact-details strong {
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+#contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #b0b0b0;
+}
+
+#contact-form input[type="text"],
+#contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #444;
+    background-color: #2a2a2a; /* 输入框背景 */
+    color: #e0e0e0; /* 输入框文字颜色 */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#contact-form input[type="text"]::placeholder,
+#contact-form textarea::placeholder {
+    color: #777; /* 占位符颜色 */
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form textarea:focus {
+    border-color: #00AFFF;
+    background-color: #333;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0,175,255,.25);
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Footer - Dark Theme */
+footer {
+    background-color: #0a0a0a; /* 更深的页脚背景 */
+    color: #888; /* 页脚文字颜色 */
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+footer p {
+    margin: 0 0 10px 0;
+}
+
+footer a {
+    color: #aaa; /* 页脚链接颜色 */
+}
+
+footer a:hover {
+    color: #00AFFF; /* 页脚链接悬停 */
+}
+
+.social-links a {
+    color: #888;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #00AFFF;
+}
+
+/* Floating Chat Button */
+.floating-chat-button {
+    position: fixed;
+    bottom: 105px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+
+/* Keyframes for animations */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 为区块标题也增加一个入场动画 */
+section h2 {
+    animation: slideInUp 0.8s ease-out backwards;
+}
+
+/* 可以为特定区块设置不同的动画延迟 */
+.about-section h2 { animation-delay: 0.1s; }
+.products-section h2 { animation-delay: 0.1s; }
+.cases-section h2 { animation-delay: 0.1s; }
+.process-section h2 { animation-delay: 0.1s; }
+.contact-section h2 { animation-delay: 0.1s; }
+
+/* 为部分元素增加滚动出现动画 (需要JS配合激活类) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (max-width: 992px) {
+    .hero-section h1 { font-size: 2.8rem; }
+    .hero-section .subtitle { font-size: 1.2rem; }
+    section h2 { font-size: 2.2rem; }
+
+    .process-steps {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .step-arrow {
+        transform: rotate(90deg);
+        padding: 15px 0;
+    }
+    .step-item {
+        margin-bottom: 20px; /* 步骤间距 */
+    }
+    .process-steps .step-item:last-child {
+        margin-bottom: 0;
+    }
+    .process-steps .step-arrow:last-of-type {
+        display: none; /* 最后一个箭头不需要 */
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: center; /* Logo居中 */
+    }
+
+    header nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap; /* 导航项换行 */
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 5px 10px;
+    }
+
+    .hero-section {
+        padding: 80px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1.1rem;
+    }
+    .hero-section .subtitle .mobile-break { display: block; }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    section h2 { font-size: 2rem; margin-bottom: 40px; }
+
+    .about-content, .contact-grid {
+        flex-direction: column;
+    }
+    .contact-details {
+        padding-left: 0;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .contact-details p {
+        justify-content: center;
+    }
+
+    .advantage-grid {
+        grid-template-columns: 1fr; /* 单列显示 */
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .floating-chat-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #00c300; /* LINE绿色 */
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .floating-chat-button i {
+        font-size: 24px;
+        color: white;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 1.5rem; }
+    .hero-section h1 { font-size: 2rem; }
+    .hero-section .subtitle { font-size: 1rem; }
+    section h2 { font-size: 1.8rem; }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Button Hover and Click Effects */
+.btn-hover-effect {
+    transform: scale(1.08) !important;
+    box-shadow: 0 0 20px rgba(0, 175, 255, 0.8), 0 0 30px rgba(0, 175, 255, 0.5) !important;
+}
+
+.btn-click-effect {
+    transform: scale(0.95) !important;
+    box-shadow: 0 0 10px rgba(0, 175, 255, 0.4) !important;
+    transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+}
+
+/* Background Animation and Tech Feel Enhancement */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,175,255,0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+    animation: moveBackground 10s linear infinite;
+}
+
+@keyframes moveBackground {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-100px, -100px); }
+}
+
+/* 增强卡片悬停效果 */
+.product-item:hover, .case-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 175, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 增强按钮悬停效果 */
+.btn-primary:hover {
+    background-color: #007BFF;
+    color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+}
+
+.btn-primary:hover {
+    background-color: #007BFF;
+    color: #121212; /* 深色文字以保证对比度 */
+    border-color: #00AFFF;
+    animation: pulse-glow 2s infinite alternate; /* 按钮呼吸光晕 */
+}
+
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 5px rgba(0, 175, 255, 0.3), 0 0 10px rgba(0, 175, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(0, 175, 255, 0.6), 0 0 25px rgba(0, 175, 255, 0.4);
+    }
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* 更深的蓝色 */
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 175, 255, 0.6), 0 0 25px rgba(0, 175, 255, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #00AFFF; /* 亮科技蓝 */
+    border-color: #00AFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 175, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 0;
+}
+
+.btn-secondary:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+.btn-secondary span, .btn-secondary i { /* 确保文字和图标在伪元素之上 */
+    position: relative;
+    z-index: 1;
+}
+
+.btn-secondary:hover {
+    background-color: transparent; /* 保持透明，让伪元素效果显示 */
+    color: #FFFFFF; /* 悬停时文字变白 */
+    border-color: #00AFFF;
+}
+
+/* Core Advantages Section */
+.about-section, .products-section, .cases-section, .process-section, .contact-section {
+    padding: 80px 0;
+    border-bottom: 1px solid #222; /* 区块间细微分隔 */
+}
+
+.products-section, .process-section {
+    background-color: #1a1a1a; /* 稍浅的深色背景，区分区块 */
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 20px;
+    color: #FFFFFF;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #00AFFF, #007BFF); /* 渐变下划线 */
+    border-radius: 2px;
+}
+
+/* About Us Section - Dark Theme */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h3 {
+    margin-bottom: 20px;
+    color: #00AFFF; /* 亮科技蓝 */
+}
+
+.about-text p {
+    color: #b0b0b0; /* 文本颜色调整 */
+}
+
+.core-advantages {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.core-advantages h3 {
+    margin-bottom: 25px;
+    text-align: left;
+    color: #00AFFF;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.advantage-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.advantage-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.advantage-item::after { /* 添加悬停时的辉光效果 */
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 175, 255, 0.15) 0%, rgba(0, 175, 255, 0) 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+    z-index: 0;
+    opacity: 0;
+}
+
+.advantage-item:hover::after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.advantage-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 175, 255, 0.25);
+    border-color: #00AFFF;
+}
+
+.advantage-item > * { /* 确保内容在辉光之上 */
+    position: relative;
+    z-index: 1;
+}
+
+.advantage-item i {
+    font-size: 2.8rem; /* 略微增大图标 */
+    color: #00AFFF;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.advantage-item:hover i {
+    transform: scale(1.1);
+}
+
+.advantage-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+.advantage-item p {
+    color: #a0a0a0;
+}
+
+/* Products Section - Dark Theme */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Feature List Styles */
+.feature-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-list p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    line-height: 1.6;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.feature-list p:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .feature-list p {
+        font-size: 1.1rem;
+    }
+}
+
+.product-item {
+    background-color: #222; /* 卡片背景 */
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #
