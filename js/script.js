@@ -108,12 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    console.log('Website script has been updated and loaded.');
-});
+    // Add scroll animation effect
+    animatedElements.forEach(el => {
+        el.classList.add('animate-on-scroll');
+    });
 
-// Add scroll animation effect
-animatedElements.forEach(el => {
-    el.classList.add('animate-on-scroll');
+    console.log('Website script has been updated and loaded.');
 });
 
 // Optimize floating customer service button click event
