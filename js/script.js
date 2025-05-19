@@ -119,8 +119,7 @@ animatedElements.forEach(el => {
 // Optimize floating customer service button click event
 if (chatBtn) {
     chatBtn.addEventListener('click', () => {
-        console.log('Floating customer service button clicked');
-        alert('Customer service feature is under development, please stay tuned!');
+        window.open('https://line.me/R/ti/p/@145zejab', '_blank');
     });
 }
 
