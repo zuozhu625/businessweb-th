@@ -76,12 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
     activateNavLink(); // Activate on initial load
 
     // Floating customer service button click event
-    const chatBtn = document.querySelector('.floating-chat-btn');
+    const chatBtn = document.querySelector('.floating-chat-button');
     if (chatBtn) {
         chatBtn.addEventListener('click', () => {
-            console.log('Floating customer service button clicked');
-            // Logic for opening chat window or redirecting to customer service page can be added here
-            alert('Customer service feature is under development, please stay tuned!');
+            window.open('https://line.me/R/ti/p/@145zejab', '_blank');
         });
     }
 
